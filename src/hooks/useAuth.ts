@@ -1,4 +1,3 @@
-// src/hooks/useAuth.ts
 import { api } from "@/lib/axios";
 import { useAuthStore } from "@/store/authStore";
 import type { User } from "@/types/user";

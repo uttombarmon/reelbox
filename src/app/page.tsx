@@ -1,8 +1,11 @@
 "use client";
+import { useAuth } from "@/hooks/useAuth";
 import { useUser } from "@/hooks/useUser";
+import Link from "next/link";
 
 export default function NavigationMenu() {
   const { user, isAuthenticated, isLoading } = useUser();
+  const { logout } = useAuth();
 
   if (isLoading) {
     return <div>...</div>;
@@ -16,6 +19,7 @@ export default function NavigationMenu() {
         <button
           onClick={() => {
             /* call logout function from useAuth */
+            logout();
           }}
         >
           Logout
@@ -26,8 +30,8 @@ export default function NavigationMenu() {
 
   return (
     <nav>
-      <a href="/login">Login</a>
-      <a href="/register">Register</a>
+      <Link href="/login">Login</Link>
+      <Link href="/register">Register</Link>
     </nav>
   );
 }
